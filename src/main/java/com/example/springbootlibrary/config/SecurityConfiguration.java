@@ -14,7 +14,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
 
-        http.authorizeRequests(configurer -> configurer.antMatchers("/api/books/secure/**","/api/reviews/secure/**").authenticated()).oauth2ResourceServer().jwt();
+        http.authorizeRequests(configurer -> configurer.antMatchers("/api/books/secure/**","/api/reviews/secure/**","/api/messages/secure/**","/api/admin/secure/**").authenticated()).oauth2ResourceServer().jwt();
 
         http.cors();
         http.setSharedObject(ContentNegotiationStrategy.class, new HeaderContentNegotiationStrategy());
